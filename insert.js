@@ -20,7 +20,7 @@ csvtojson()
         if (err) throw err;
 
         client
-          .db("skillhub8")
+          .db("skillhub9")
           .collection("users")
           .insertMany(nwCSVData, (err, res) => {
             if (err) throw err;
