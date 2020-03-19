@@ -9,10 +9,10 @@ csvtojson()
   .then(csvData => {
     nwCSVData = csvData.map(p => {
       return {
-        name: p.name, phone: p.phone, type: p.type, sub_type: p.sub_type, address: p.address, password: bcrypt.hashSync(p.password)
+        name: p.name, code: p.code, type: p.type, subType: p.subType, address: p.address, password: bcrypt.hashSync(p.password)
       }
     });
-    console.log(nwCSVData)
+    console.log(nwCSVData);
     mongodb.connect(
       url,
       { useNewUrlParser: true, useUnifiedTopology: true },
@@ -20,7 +20,7 @@ csvtojson()
         if (err) throw err;
 
         client
-          .db("skillhub9")
+          .db("skillhub12")
           .collection("users")
           .insertMany(nwCSVData, (err, res) => {
             if (err) throw err;
